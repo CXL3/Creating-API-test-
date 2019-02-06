@@ -20,6 +20,11 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
+import android.net.Uri;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,25 +35,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Create a place holder list
-        ArrayList<String> testList = new ArrayList<>();
-        testList.add("Gone with the Wind");
-        testList.add("Treasure Island");
-        testList.add("The picture of Dorian Gray");
-        testList.add(" To kill a Mockingbird");
-        testList.add("Pride and Prejudice");
-        testList.add("Emma");
-        testList.add("Odyssey");
-        testList.add("The grapes of wrath");
-        testList.add("Jane Eyre");
+        ArrayList<NewsItem> newsList = new ArrayList<>();
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
+        newsList.add(new NewsItem("KirklandNewsOne","Feb2. 2019","Seattle Times"));
 
         // Add reference to Listview in the Layout
-        ListView testListView = (ListView) findViewById(R.id.textID1);
+        ListView newsListView = (ListView) findViewById(R.id.list);
 
         //Create a new arrayAdapter of testList
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,testList);
+        NewsAdapter adapter = new NewsAdapter(this, newsList);
 
         //Set the adapter on The list View, sp tje list can be populated in the user interface
-        testListView.setAdapter(adapter);
+        newsListView.setAdapter(adapter);
     }
 
 }
